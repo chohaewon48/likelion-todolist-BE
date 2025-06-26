@@ -16,3 +16,9 @@ class TodoSerializer(serializers.ModelSerializer):
             'is_checked',
             'emoji',
         ]
+        extra_kwargs = {
+            'date': {'required': False},
+            'content': {'required': False},
+            'is_checked': {'required': False},
+            'emoji': {'required': False},
+        }
