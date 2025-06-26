@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-c2#50k9+xb#=yil5a&gvgf(ujp8guur&sxm%zbp+476upkrj2h
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['ec2-43-201-105-128.ap-northeast-2.compute.amazonaws.com']
+ALLOWED_HOSTS = ['ec2-54-180-106-153.ap-northeast-2.compute.amazonaws.com']
 
 
 # Application definition
@@ -57,8 +57,25 @@ MIDDLEWARE = [
 ROOT_URLCONF = 'todolistProject.urls'
 
 # CORS settings
-CORS_ALLOW_ALL_ORIGINS = True
+CORS_ALLOW_ALL_ORIGINS = False
+CORS_ALLOWED_ORIGINS = [
+    "http://localhost:5173",
+]
 CORS_ALLOW_CREDENTIALS = True
+# CROSS_ORIGIN_OPENER_POLICY = "same-origin" 
+ROOT_URLCONF = 'todolistProject.urls'
+
+CORS_ALLOW_HEADERS = [
+    'accept',
+    'accept-encoding',
+    'authorization',
+    'content-type',
+    'dnt',
+    'origin',
+    'user-agent',
+    'x-csrftoken',
+    'x-requested-with',
+]
 
 TEMPLATES = [
     {
@@ -83,12 +100,8 @@ WSGI_APPLICATION = 'todolistProject.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'todolistdb',
-        'USER': 'root',
-        'PASSWORD': '',
-        'HOST': 'ec2-43-201-105-128.ap-northeast-2.compute.amazonaws.com',
-        'PORT': '3306',
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
 
@@ -117,7 +130,7 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = 'en-us'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'Asia/Seoul'
 
 USE_I18N = True
 
